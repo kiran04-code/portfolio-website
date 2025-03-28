@@ -38,6 +38,65 @@
             <div class="img2"><img src="kiran.jpg" alt=""></div>
         </div>
     </div>
+    <div class="home2">
+        <div class="club-list">
+            <button class="club-btn" data-club="codingClub"><h4>10th Details</h4></button>
+            <button class="club-btn" data-club="musicClub"><h4>12th Details</h4></button>
+            <button class="club-btn" data-club="roboticsClub"><h4>Engineering Details</h4></button>
+          </div>
+          
+          <div id="club-details">
+            <h2>Educational Details</h2>
+            <div id="club-content">
+              <!-- Club details will be dynamically loaded here -->
+              Click a club to see its details.
+            </div>
+          </div>
     </div>
+    </div>
+
+    <script>
+               // Object holding details of each club
+const clubDetails = {
+  codingClub: `
+    <h3>10th Details</h3>
+    <p>Focuses on coding challenges, hackathons, and mentorship programs.</p>
+    <ul>
+      <li>Upcoming Event: Code-a-thon 2025</li>
+      <li>President: John Doe</li>
+      <li>Contact: codingclub@vit.edu</li>
+    </ul>
+  `,
+  musicClub: `
+    <h3>12th Details</h3>
+    <p>Dedicated to promoting musical talent through events and workshops.</p>
+    <ul>
+      <li>Upcoming Event: Battle of Bands</li>
+      <li>President: Jane Smith</li>
+      <li>Contact: musicclub@vit.edu</li>
+    </ul>
+  `,
+  roboticsClub: `
+    <h3>Engineering Details</h3>
+    <p>Explores innovations in robotics and automation through competitions.</p>
+    <ul>
+      <li>Upcoming Event: RoboRace 2025</li>
+      <li>President: Alex Johnson</li>
+      <li>Contact: roboticsclub@vit.edu</li>
+    </ul>
+  `
+};
+
+// Attach event listeners to buttons
+document.querySelectorAll('.club-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const clubKey = button.getAttribute('data-club');
+    const clubContent = clubDetails[clubKey] || '<p>Details not found!</p>';
+    
+    // Update club content dynamically
+    document.getElementById('club-content').innerHTML = clubContent;
+  });
+});
+    </script>
 </body>
 </html>
